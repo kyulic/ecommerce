@@ -1,0 +1,20 @@
+ console.log(product)
+            const productCart=db.cart[product.id]
+            if(product.id===productCart?.id){
+                currentProducts.push({
+                    ...product,
+                    quantity:product.quantity-productCart.amount,
+
+                });
+
+            }else{
+                currentProducts.push(product);
+
+            }
+            db.products=currentProducts;
+            db.cart={}
+
+            window.localStorage.setItem("products", JSON.stringify(db.products));
+            window.localStorage.setItem("cart",JSON.stringify(db.cart));
+            printTotal(db);
+            printProductsInCart(db);
