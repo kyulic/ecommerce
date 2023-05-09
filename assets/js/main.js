@@ -229,8 +229,8 @@ async function main(){
         if (!response)return;
         
         const currentProducts=[];
-        
-        const productCart=db.cart[product.id];
+        for (const product of db.products) {
+            const productCart=db.cart[product.id];
             if(product.id===productCart?.id){
                 currentProducts.push({
                     ...product,
@@ -242,6 +242,9 @@ async function main(){
                 currentProducts.push(product);
 
             }
+            
+        }
+        
             db.products=currentProducts;
             db.cart={};
 
