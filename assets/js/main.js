@@ -190,36 +190,10 @@ function printTotal(db) {
     
     
 }
-async function main(){
-    const db={
 
-        products:
-        //estos son los productos
-        //pregunta si la data esta en la red o en el localstore
-            JSON.parse(window.localStorage.getItem("products") || await getProducts()),
-        // pregunta si esta en la red o en el local store el añadir productos
-        //esto es lo que se a añadido al carrito
-            cart:JSON.parse(window.localStorage.getItem("cart"))||{},
 
-    };
-
-    
-    
-    printProducts(db);
-
-    handleShowCart();
-    addToCartFromProducts(db);
-    printProductsInCart(db);
-    deleteAndSuCart(db);
-    printTotal(db)
-
+function handleTotal(db) {
     const btnBuy=document.querySelector(".btn");
-    
-
-    // btnBuy.addEventListener("click",function() {
-    //     console.log(Object.values(db.cart).length)
-    // })
-    
     btnBuy.addEventListener("click",function() {
         console.log(db.cart)
 
@@ -260,6 +234,32 @@ async function main(){
     });
 
     
+}
+
+async function main(){
+    const db={
+
+        products:
+        //estos son los productos
+        //pregunta si la data esta en la red o en el localstore
+            JSON.parse(window.localStorage.getItem("products") || await getProducts()),
+        // pregunta si esta en la red o en el local store el añadir productos
+        //esto es lo que se a añadido al carrito
+            cart:JSON.parse(window.localStorage.getItem("cart"))||{},
+
+    };
+
+    
+    
+    printProducts(db);
+
+    handleShowCart();
+    addToCartFromProducts(db);
+    printProductsInCart(db);
+    deleteAndSuCart(db);
+    printTotal(db)
+    handleTotal(db) 
+   
 
     
 }
