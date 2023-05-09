@@ -230,7 +230,7 @@ async function main(){
         
         const currentProducts=[];
         
-        const productCart=db.cart[product.id]
+        const productCart=db.cart[product.id];
             if(product.id===productCart?.id){
                 currentProducts.push({
                     ...product,
@@ -243,7 +243,7 @@ async function main(){
 
             }
             db.products=currentProducts;
-            db.cart={}
+            db.cart={};
 
             window.localStorage.setItem("products", JSON.stringify(db.products));
             window.localStorage.setItem("cart",JSON.stringify(db.cart));
