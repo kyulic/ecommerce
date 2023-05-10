@@ -368,10 +368,10 @@ cart__product--body-op i{
     width: 500px;
     height: 300px;
     gap: 10rem;
-    padding: ;
+    
     display: flex;
     align-items: center;
-    
+
 }
 @media(max-width:500px){
     
