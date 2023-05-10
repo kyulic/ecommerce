@@ -1,7 +1,8 @@
 :root{
-    
+    --color_principal:rgb(252, 73, 73); 
     --general-shadow:0 .5rem 1rem rgb(0,0,0,.15);
     --h-header:50px
+
     
 }
 *{
@@ -286,9 +287,117 @@ cart__product--body-op i{
 }
 
 
+.buttons{
+    background-color: aqua;
+}
+
+.informacion_final{
+    background-color: rgb(235, 222, 222);
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 1rem;
+    gap: 3rem;
+   
+}
+
+.information{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    
+    
+}
+
+.information ul{
+    
+    list-style: none;
+}
+
+.card_information{
+    background-color: var(--color_principal);
+    color: #ffffff;
+    padding: 1rem 3rem;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-weight:bolder
+
+}
+
+.container{
+    margin: 2rem 1rem;
+    display: flex;
+    background-color: #ffffff;
+}
+
+.title{
+    margin-left: 5rem;
+    font-weight: bold;
+    display: flex;
+    gap: 3rem;
+}
+
+.title span{
+    color: var(--color_principal);
+}
+
+
+.card_information span{
+    color: #000;
+}
+
+.sweatshirt_principal{
+    background-color: rgb(252, 73, 73);
+    display: flex;
+    align-items: center;
+    min-width: 400px;
+    max-width: 500px;
+    margin: 1rem 5rem;
+    padding-bottom: 4rem;
+    padding-top: 6rem;
+    
+
+}
+
+.init{
+    background-color: red;
+    margin: 2rem 2rem;
+    width: 500px;
+    height: 300px;
+    gap: 10rem;
+    padding: ;
+    display: flex;
+    align-items: center;
+    
+}
 @media(max-width:500px){
+    
    
     .cart{
         width: 100%;
     }
+
+    .information{
+        display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+        
+        
+    }
+
+    .sweatshirt_principal{
+        background-color: var(--color_principal);
+        display: flex;
+        align-items: center;
+        min-width: 300px;
+        
+        
+    
+    }
+
+
 }
