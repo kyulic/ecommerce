@@ -29,7 +29,7 @@ function printProducts(db) {
                 <h5>
                     $${product.price}  <span> <b>Stock</b>:${product.quantity}</span>
                 <i class='bx bx-plus' id='${product.id}'></i>
-                ${product.quantity? `<i class='bx bx-plus' id='${product.id}'></i>`:"<pan>  Sold out</pan>"}
+                ${product.quantity? `<i class='bx bx-plus' id='${product.id}'></i>`:"<span class='soldOut'>  Sold out</span>"}
                 </h5>
                 <h4>${product.name}</h4>
                 
@@ -79,6 +79,7 @@ function addToCartFromProducts(db) {
             window.localStorage.setItem("cart",JSON.stringify(db.cart))
             printProductsInCart(db)
             printTotal(db) 
+            handlePrintAmountProducts(db)
 
         }
         
@@ -165,6 +166,7 @@ function deleteAndSuCart(db) {
         window.localStorage.setItem("cart",JSON.stringify(db.cart))
         printProductsInCart(db);
         printTotal(db)
+        handlePrintAmountProducts(db)
         
     });
     
@@ -228,10 +230,28 @@ function handleTotal(db) {
             printTotal(db);
             printProductsInCart(db);
             printProducts(db)
+            handlePrintAmountProducts(db)
 
         
         
     });
+
+    
+}
+
+function handlePrintAmountProducts(db) {
+    const amountProducts=document.querySelector('.amountProducts');
+
+    let amount=0;
+
+    for (const product in db.cart) {
+        console.log(db.cart[product]);
+        amount+=db.cart[product].amount
+        
+    }
+
+    amountProducts.textContent=amount;
+   
 
     
 }
@@ -259,7 +279,10 @@ async function main(){
     deleteAndSuCart(db);
     printTotal(db)
     handleTotal(db) 
-   
+    handlePrintAmountProducts(db)
+
+
+    
 
     
 }

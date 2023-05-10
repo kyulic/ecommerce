@@ -70,6 +70,16 @@ body{
     font-size: 0.8rem;
     
 }
+
+.product__info .soldOut{
+    background-color: lightcoral;
+    color: #ffffff;
+    display: inline-block;
+    padding: 0.3rem 0.5rem;
+    user-select: none;
+    border-radius: 0.3rem;
+
+}
 /* boton de añadir */
 .bx-plus{
     background-color: #ffffff;
@@ -139,9 +149,25 @@ header > nav{
 /* carrito de compras */
 header >nav >i{
     font-size: 2rem;
-    
+    position: relative;
     
 
+}
+
+.amountProducts{
+    background-color: #000;
+    color: #ffffff;
+    font-size: 0.8rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    right: -5px;
+    top: 15px;
 }
 
 
