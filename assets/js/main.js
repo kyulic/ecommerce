@@ -256,6 +256,27 @@ function handlePrintAmountProducts(db) {
     
 }
 
+
+function printButtons(db) {
+    const objectProduct={}
+    objectProduct.all=db.products.length;
+
+    for (const product of db.products) {
+        objectProduct[product.category]=objectProduct[product.category]+1||1
+        
+    }   
+
+    let html=''
+
+    Object.entries(objectProduct).forEach(info => {
+        console.log(info)
+        html+=`<button>${info[0]}<br/> ${info[1]}</button>`;
+    });
+
+    document.querySelector('.buttons').innerHTML=html
+    
+}
+
 async function main(){
     const db={
 
@@ -277,9 +298,18 @@ async function main(){
     addToCartFromProducts(db);
     printProductsInCart(db);
     deleteAndSuCart(db);
-    printTotal(db)
-    handleTotal(db) 
-    handlePrintAmountProducts(db)
+    printTotal(db);
+    handleTotal(db); 
+    handlePrintAmountProducts(db);
+    printButtons(db);
+
+    
+
+
+    
+
+    
+
 
 
     
