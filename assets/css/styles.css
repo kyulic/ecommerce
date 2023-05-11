@@ -36,9 +36,25 @@ body{
     box-shadow: var(--general-shadow);
     border-radius: 1rem;
     background-color: rgba(179, 168, 168, 0.863);
+    
 }
+
+div.product__imag:hover {
+    transform: translateY(-5%);
+  }
+
+  div.product__imag{
+    
+    transform: translateX(0);
+    transition: 0.7s;
+  }
+
+  
 .product__img{
     padding: 1rem;
+    
+    
+    
 }
 
 .product__info{
@@ -98,14 +114,18 @@ body{
 
 .bx.bx-plus{
    
-    /* para ajustar la posición */
+    /* para ajustar la posición del boton agregar*/
     position: absolute;
     top: -0.9rem;
-    right: 1rem;
-    
+    right: 1rem;   
     
     
 }
+
+.bx.bx-plus:hover {
+    background-color: var(--color_principal);
+    cursor: pointer;
+  }
 
 .cart__product--body-op .bx.bx-plus{
    
@@ -361,16 +381,59 @@ cart__product--body-op i{
 }
 
 .init{
-    background-color: red;
+    
     margin: 2rem 2rem;
     width: 500px;
     height: 300px;
     gap: 10rem;
     
-    display: flex;
+    padding: 5rem 4rem;
+    justify-content: center;
     align-items: center;
 
 }
+
+.principal{
+    
+    color: #ccc;
+    margin-top: 2rem;
+    width: 450px;
+}
+
+.price_principal{
+    color: var(--color_principal);
+    margin-top: 1rem;
+    font-weight: bold;
+    
+    
+}
+
+.btn_init{
+    padding: 0.4rem 2rem;
+    background-color: #000;
+    color: #ccc;
+    font-weight: bold;
+    margin-top: 1rem;
+    
+
+
+}
+
+
+
+.title svg{
+    
+    width: 30px;
+
+    
+}
+
+.load__gif{
+   width: 20px;
+    fill: var(--color_principal);
+    border: none;
+}
+
 
 .buttons{
     display: flex;
@@ -378,11 +441,26 @@ cart__product--body-op i{
     justify-content: center;
 }
 
+.buttons button:hover {
+    color: #ccc;
+    background-color: #726d6d;
+    padding: 1rem 1rem;
+    cursor: pointer;
+    gap: 2rem;
+  }
 .buttons button{
-    background-color: lightblue;
+    background-color: transparent;
     padding: 10px 20px;
     border: none;
 }
+
+.tit{
+    gap: 4rem;
+}
+
+
+
+
 @media(max-width:500px){
     
    

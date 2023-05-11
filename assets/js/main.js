@@ -269,8 +269,8 @@ function printButtons(db) {
     let html=''
 
     Object.entries(objectProduct).forEach(info => {
-        console.log(info)
-        html+=`<button>${info[0]}<br/> ${info[1]}</button>`;
+        
+        html+=`<button class="btns" data-filter="${info[0]}">${info[0]} <br/> ${info[1]}  products</button>`;
     });
 
     document.querySelector('.buttons').innerHTML=html
@@ -302,6 +302,29 @@ async function main(){
     handleTotal(db); 
     handlePrintAmountProducts(db);
     printButtons(db);
+
+    const buttonsHtml=document.querySelector(".buttons");
+
+    buttonsHtml.addEventListener('click',function (e) {
+        const typeFilter=e.target.dataset.filter;
+
+        let newArray=[];
+        
+        if (typeFilter==='all') {
+            return products
+            
+        }
+
+        for (const product of db.products) {
+            
+            if(product.category===typeFilter){
+                newArray.push(product);
+            }
+        }
+        printProducts(newArray)
+
+
+    })
 
     
 
