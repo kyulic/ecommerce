@@ -21,7 +21,21 @@ body{
     
     padding: 1rem;
     background-color: #cccc;
+    
 }
+
+body::-webkit-scrollbar {
+    width: 8px; /* Tamaño del scroll en vertical */
+    height: 8px; /* Tamaño del scroll en horizontal */
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+body::-webkit-scrollbar-thumb {
+    background: var(--color_principal);
+    border-radius: 10px;
+}
+
+
 .products{
     padding-top: 3rem;
     display:grid;
@@ -152,9 +166,13 @@ header{
     left: 0;
     display: flex;
     top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 
 }
+
 
 header > nav{
     max-width: 1024px;
@@ -281,9 +299,7 @@ pone el 100% sale del lado izquierdo */
     gap: 0.5rem;
 }
 
-cart__product--body-op i{
-    cursor: pointer;
-}
+
 
 .cart__product--body-op .bx-trash{
     color: crimson;
@@ -345,10 +361,24 @@ cart__product--body-op i{
 
 }
 
+.container_pr{
+    max-width: 100%;
+}
 .container{
-    margin: 2rem 1rem;
-    display: flex;
+    
+   
+   display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px,1fr));
+    max-width: 1024px;
+    
     background-color: #ffffff;
+    
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+    
 }
 
 .title{
@@ -356,6 +386,10 @@ cart__product--body-op i{
     font-weight: bold;
     display: flex;
     gap: 3rem;
+    
+    
+    
+
 }
 
 .title span{
@@ -368,11 +402,11 @@ cart__product--body-op i{
 }
 
 .sweatshirt_principal{
-    background-color: rgb(252, 73, 73);
+    background-color: var(--color_principal);
     display: flex;
     align-items: center;
-    min-width: 400px;
-    max-width: 500px;
+    /* min-width: 400px; */
+    /* width: 20%; */
     margin: 1rem 5rem;
     padding-bottom: 4rem;
     padding-top: 6rem;
@@ -380,19 +414,21 @@ cart__product--body-op i{
 
 }
 
-.init{
+.heather_infor{
     
     margin: 2rem 2rem;
-    width: 500px;
+    /* width: 80%; */
     height: 300px;
-    gap: 10rem;
     
-    padding: 5rem 4rem;
+    
+    padding: 5rem 1rem;
+    display: flex;
     justify-content: center;
     align-items: center;
 
 }
 
+    
 .principal{
     
     color: #ccc;
@@ -462,6 +498,8 @@ cart__product--body-op i{
 
 
 @media(max-width:500px){
+
+   
     
    
     .cart{
@@ -477,11 +515,7 @@ cart__product--body-op i{
         
     }
 
-    .sweatshirt_principal{
-        background-color: var(--color_principal);
-        display: flex;
-        align-items: center;
-        min-width: 300px;
+    
         
         
     

@@ -311,7 +311,7 @@ async function main(){
         let newArray=[];
         
         if (typeFilter==='all') {
-            return products
+            return printProducts(products)
             
         }
 
