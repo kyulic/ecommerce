@@ -367,7 +367,7 @@ pone el 100% sale del lado izquierdo */
 .container{
     
    
-   display:grid;
+    display:grid;
     grid-template-columns: repeat(auto-fit, minmax(50px,1fr));
     max-width: 1024px;
     
@@ -486,6 +486,7 @@ pone el 100% sale del lado izquierdo */
   }
 .buttons button{
     background-color: transparent;
+    transition: 0.3s;
     padding: 10px 20px;
     border: none;
 }
@@ -522,4 +523,4 @@ pone el 100% sale del lado izquierdo */
     }
 
 
-}
+

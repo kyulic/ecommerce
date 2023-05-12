@@ -17,9 +17,9 @@ function printProducts(db) {
     
     let html="";
     for (const product of db.products) {
-        
+        console.log(product)
         html +=`
-        <div class="product">
+        <div class="product ${product.category}">
             <div class="product__imag">
                 <img src="${product.image}" alt="imagen">
             </div>
@@ -31,7 +31,7 @@ function printProducts(db) {
                 <i class='bx bx-plus' id='${product.id}'></i>
                 ${product.quantity? `<i class='bx bx-plus' id='${product.id}'></i>`:"<span class='soldOut'>  Sold out</span>"}
                 </h5>
-                <h4>${product.name}</h4>
+                <h4>${product.name} ${product.category}</h4>
                 
             </div>
         </div>`
@@ -303,29 +303,22 @@ async function main(){
     handlePrintAmountProducts(db);
     printButtons(db);
 
-    const buttonsHtml=document.querySelector(".buttons");
-
-    buttonsHtml.addEventListener('click',function (e) {
-        const typeFilter=e.target.dataset.filter;
-
-        let newArray=[];
-        
-        if (typeFilter==='all') {
-            return printProducts(products)
-            
-        }
-
-        for (const product of db.products) {
-            
-            if(product.category===typeFilter){
-                newArray.push(product);
-            }
-        }
-        printProducts(newArray)
+    mixitup(".buttons", {
+        selectors: {
+            target: ".product",
+        },
+        animation: {
+            duration: 300,
+        },
+    });
 
 
-    })
 
+
+
+
+
+   
     
 
 
