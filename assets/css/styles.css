@@ -59,7 +59,7 @@ div.product__imag:hover {
 
   div.product__imag{
     
-    transform: translateX(0);
+    /* transform: translateY(0); */
     transition: 0.7s;
   }
 
@@ -363,6 +363,7 @@ pone el 100% sale del lado izquierdo */
 
 .container_pr{
     max-width: 100%;
+    
 }
 .container{
     
@@ -370,7 +371,7 @@ pone el 100% sale del lado izquierdo */
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(50px,1fr));
     max-width: 1024px;
-    
+    margin: 0 auto;
     background-color: #ffffff;
     
     /* display: flex; */
@@ -421,7 +422,7 @@ pone el 100% sale del lado izquierdo */
     height: 300px;
     
     
-    padding: 5rem 1rem;
+    /* margin: 2px auto; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -457,6 +458,7 @@ pone el 100% sale del lado izquierdo */
 
 
 
+
 .title svg{
     
     width: 30px;
@@ -480,7 +482,7 @@ pone el 100% sale del lado izquierdo */
 .buttons button:hover {
     color: #ccc;
     background-color: #726d6d;
-    padding: 1rem 1rem;
+    
     cursor: pointer;
     gap: 2rem;
   }
@@ -499,6 +501,10 @@ pone el 100% sale del lado izquierdo */
 
 
 @media(max-width:500px){
+    .container{
+        display: flex;
+        flex-direction: column-reverse;
+    }
 
    
     
@@ -509,8 +515,8 @@ pone el 100% sale del lado izquierdo */
 
     .information{
         display: flex;
-    flex-direction: column;
-    gap: 2rem;
+        flex-direction: column;
+        gap: 2rem;
     
         
         

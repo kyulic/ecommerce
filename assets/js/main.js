@@ -27,11 +27,12 @@ function printProducts(db) {
              
             <div class="product__info">
                 <h5>
-                    $${product.price}  <span> <b>Stock</b>:${product.quantity}</span>
-                <i class='bx bx-plus' id='${product.id}'></i>
+                    $${product.price}  <span> <b>Stock</b>:${product.quantity}</span> 
+                <i class='bx bx-plus' id='${product.id}'></i> 
+                
                 ${product.quantity? `<i class='bx bx-plus' id='${product.id}'></i>`:"<span class='soldOut'>  Sold out</span>"}
                 </h5>
-                <h4>${product.name} ${product.category}</h4>
+                <h4>${product.name} </h4>
                 
             </div>
         </div>`
@@ -80,6 +81,7 @@ function addToCartFromProducts(db) {
             printProductsInCart(db)
             printTotal(db) 
             handlePrintAmountProducts(db)
+            printButtons(db)
 
         }
         
@@ -258,22 +260,35 @@ function handlePrintAmountProducts(db) {
 
 
 function printButtons(db) {
-    const objectProduct={}
-    objectProduct.all=db.products.length;
+    const objectProduct = {};
+    objectProduct.all = db.products.length;
 
     for (const product of db.products) {
-        objectProduct[product.category]=objectProduct[product.category]+1||1
-        
-    }   
+        objectProduct[product.category] =
+            objectProduct[product.category] + 1 || 1;
+    }
 
-    let html=''
+    let html = `<button class="btns" data-filter="all">all <br/> ${objectProduct["all"]} products</button>`;
 
-    Object.entries(objectProduct).forEach(info => {
-        
-        html+=`<button class="btns" data-filter="${info[0]}">${info[0]} <br/> ${info[1]}  products</button>`;
+    Object.entries(objectProduct)
+        .slice(1)
+        .forEach((info) => {
+            html += `<button class="btns" data-filter=".${info[0]}">${info[0]} <br/> ${info[1]}  products</button>`;
+        });
+
+    document.querySelector(".buttons").innerHTML = html;
+}
+
+function filtroProducts() {
+    mixitup(".products", {
+        selectors: {
+            target: ".product",
+        },
+        animation: {
+            duration: 300,
+        },
     });
 
-    document.querySelector('.buttons').innerHTML=html
     
 }
 
@@ -302,29 +317,16 @@ async function main(){
     handleTotal(db); 
     handlePrintAmountProducts(db);
     printButtons(db);
-
-    mixitup(".buttons", {
-        selectors: {
-            target: ".product",
-        },
-        animation: {
-            duration: 300,
-        },
-    });
-
-
-
-
-
+    filtroProducts()
 
 
    
-    
+
+  
 
 
-    
 
-    
+
 
 
 
